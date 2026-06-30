@@ -1,0 +1,336 @@
+/*Animal dog =  new Animal();
+System.debug('Classs'+dog);
+//dog.name = 'Max';
+//System.debug(dog.name);
+//Call the method
+//dog.printName();
+
+ArithmaticOperations math =  new ArithmaticOperations();
+System.debug('Instance value is '+math); //This gives the name of calss,
+                                         //it also returns the variables decalered in class
+math.sum(23,24); //arguments
+//Work
+Integer sum = math.sum(12,13,14);
+//Work
+Decimal sum = math.sum(12,13,14);
+//Error
+String  sum = math.sum(12,13,14);
+
+Integer mult = ArithmaticOperations.multiply(44,33);
+System.debug('Multiplication is '+mult);
+
+
+Integer age = 90;
+// age is greater than or equal to 60
+// >, <, >=, <=
+if(age >= 60){
+System.debug('Old Age');
+}else{
+System.debug('Not Old Age');
+}
+
+
+
+Integer age = 40;
+// age is greater than or equal to 60
+// >, <, >=, <=
+if(age >= 60){
+System.debug('Old Age');
+}
+// age >= 18 AND age <=40
+// && ( Logical AND )
+else if(age >= 18 && age <=40){
+System.debug('Youth');
+} else {
+System.debug('Minor');
+}
+Integer age = 17;
+if(age >= 60){ // True
+System.debug('Old Age');
+}
+
+if(age >= 18 && age <=40){
+System.debug('Youth');
+}
+if(age >= 60 && age <=60){
+}
+
+
+Integer age = 17;
+if(age >= 60){ // True
+System.debug('Old Age');
+}
+// age >= 18 && age <=40
+// OR
+// age >= 40 && age <= 60
+if( (age >= 18 && age <=40) || (age >= 40 && age <= 60) ){
+System.debug('Youth');
+}
+if(age >= 60 && age <=60){
+}*/
+
+
+
+//-----------------------------------------
+Integer i = 5;
+//i++; //Post Increment
+if(6 <= i++){  //first check then increase i
+    System.debug('6 <= i++');
+}
+System.debug(i);
+++i; //Pre Increment , firsr increase then check
+System.debug(i);
+
+//Ternary
+//----------------------------------------
+Integer age = 19;
+String outcome;
+if(age > 18){
+    outcome = 'audult';
+}else {
+    outcome = 'not audult';
+}
+System.debug(outcome);
+String message = (age > 18)? 'adult' : 'not adult';
+System.debug(message);
+
+//Null Colasiing Operator ??
+//----------------------------------------
+//Return 19 if age is not null else return 30
+//can be used for strings as well
+Integer age = 19;
+/*if(age == null){
+	age = 30;
+}*/
+age =  age ?? 30;
+System.debug(age);
+
+Account acc;
+System.debug('Acc1 '+acc);
+acc = acc ?? new Account();
+System.debug('Acc2 '+acc);
+
+//Constants
+//----------------------------------------
+///final keyword used
+///Create seprate constant class
+//if you have 10 process create 10 constant class
+//if a constant is not initlized it can be initlized 1 time
+//second time it will give error
+
+System.debug(MyConstants.PI_VALUE);
+//MyConstants.PI_VALUE = 3.4;
+//Line: 121, Column: 1
+//System.FinalException: Final variable has already been initialized
+MyConstants.GRVT_VALUE = 9.8;
+System.debug(MyConstants.GRVT_VALUE);
+
+//CallStack,Static,Instance
+//----------------------------------------
+CallStack obj = new CallStack();
+obj.methodA();
+
+CallStackDemo obj1 = new CallStackDemo();
+obj1.methodA();
+
+//Staic,Instance Block
+//----------------------------------------
+CurrenceyManager cm = new CurrenceyManager();
+
+//List
+//----------------------------------------
+
+//List<DataType> variableName;
+//List<String> fruitList; //default value is null for any variable
+//System.debug(fruitList);
+
+//List<DataType> variableName = new List<DataType>{'','','',''};
+//List<String> fruits = new List<String>{'Apple','Banana','Grapes'};
+//System.debug(fruits);
+
+//List<DataType> variableName = new List<DataType>();
+List<String> fruitsList = new List<String>();
+System.debug(fruitsList);
+
+Boolean isEmp = fruitsList.isEmpty();
+System.debug(isEmp);
+
+fruitsList.add('Apple');
+fruitsList.add('Banana');
+fruitsList.add('Grapes');
+fruitsList.add('Orange');
+
+Integer size = fruitsList.size();
+System.debug(size);
+
+Boolean isEmpty = fruitsList.isEmpty();
+System.debug(isEmpty);
+
+//List index out of bound error
+//String fruitName = fruitsList.get(7);
+//System.debug(fruitName);
+
+Integer index = 3;
+if(fruitsList != null && fruitsList.size() > 0 && index < fruitsList.size()){
+    String fruitName = fruitsList.get(index);
+    System.debug(fruitName);
+}
+
+fruitsList.set(1,'Pear');
+System.debug(fruitsList);
+fruitsList.remove(1);
+System.debug(fruitsList);
+fruitsList.clear();
+System.debug(fruitsList);
+
+List<String> clonedList = fruitsList.clone();
+clonedList.add('abcd');
+System.debug(clonedList);
+
+List<String> frt = new List<String>();
+frt.add('A');
+frt.add('B');
+frt.add('C');
+System.debug(frt);
+
+List<String> flst =  new List<String>();
+flst.add('D');
+flst.add('E');
+flst.add('F');
+System.debug('----'+flst);
+List<String>lst2 = flst.clone();
+system.debug('cloned '+lst2);
+flst.addAll(frt);
+System.debug('Add all '+flst);
+
+//Arrays
+//----------------------------------------
+String[] fruits = new String[5];  //list with 5 null values
+								  //here size is 5 , we should specify size
+System.debug(fruits);
+System.debug(fruits.size());
+fruits[0] = 'Apple';
+fruits.set(1, 'Grapes');
+fruits.add('Banana'); //in the last of array/list
+System.debug(fruits);
+System.debug(fruits.size());
+String name = fruits[0];
+print(name);
+
+//more way to create
+String[] dishes = new List<String>(); //list which is blank
+dishes.add('Pasta');
+
+//Set (search Set , list , string , math class in sf document)
+//--------------------------------------
+//unordered , no duplicates like list , no index access
+
+Set<Integer> ageSet;
+Set<Decimal> salarySet = new Set<Decimal>();
+Set<String> empoloyeeIdsSet = new Set<String>{'1124','4543'};
+salarySet.add(2345.34);
+salarySet.add(2345.35);
+salarySet.add(2345.36);
+Integer size = salarySet.size();
+Boolean isEmpty = salarySet.isEmpty();
+System.debug(size);
+System.debug(isEmpty);
+System.debug(salarySet);
+salarySet.remove(2345.34);
+System.debug(salarySet);
+Boolean found = salarySet.contains(2.358);
+System.debug(found);
+if(salarySet.contains(2345.35)){
+    System.debug('Element Found');
+}
+
+//clear , addAll methods and more methods are there
+
+
+//Map
+//----------------------------------------
+
+// Map<DataType, DataType> nameOfMap; //null
+// Map<DataType, DataType> nameOfMapVar = new Map<DataType , DataType>();
+/* Map<DataType, DataType> nameOfMapVar = new Map<DataType , DataType>{
+'United States' => 'USD', 'India' => 'INR'
+};*/
+
+Map<String,String> currencyMap;
+if(currencyMap == null){
+    //currencyMap = new Map<String,String>();
+}
+// ?? Use null colasing operator
+System.debug(currencyMap);
+currencyMap = currencyMap ?? new Map<String,String>();
+System.debug(currencyMap);
+// size() , isEmpty() , clear()
+
+System.debug(currencyMap.size());
+currencyMap.put('United states','USD');
+currencyMap.put('India','INR');
+currencyMap.put('Australia','AUD');
+System.debug(currencyMap);
+currencyMap.put('India','Rupee'); //will overwrite currency of india
+System.debug(currencyMap); //Always MAP is print in sorted format
+
+// get Method of Map
+String currencyX = currencyMap.get('Bharat'); //will return null as Bharat is not in map
+System.debug(currencyX);
+
+String currency_X = currencyMap.get('India');
+System.debug(currency_X);
+
+// containsKey - Method , returns Boolean
+if(currencyMap.containsKey('Bharat')){
+    String currency_y = currencyMap.get('Bharat');
+    System.debug(currency_y);
+}else{
+    currencyMap.put('Bharat','INR');
+}
+System.debug(currencyMap);
+	
+// keySet() - Fetch multiple keys
+Map<String, String> countryMap = new Map<String, String>();
+countryMap.put('United States' , 'USD');
+countryMap.put('India','INR');
+// Set of keys with same data type as map
+Set<String> keys = countryMap.keySet(); //return key with typ as in Map
+System.debug(keys);
+// value() - Returns values (List of String)
+List<String> values = countryMap.values();
+System.debug(values);
+Map<Integer, String> monthMap = new Map<Integer, String>();
+System.debug(monthMap);
+
+
+//USA- All states
+Map<String, List<String>> countryToStateMap
+    = new Map<String , List<String> >();
+
+List<String> IndiaStates = new List<String>();
+IndiaStates.add('MP');
+IndiaStates.add('Delhi');
+IndiaStates.add('UK');
+
+countryToStateMap.put('India', IndiaStates);
+countryToStateMap.put('Australia', new List<String>{'NSW','VIC','QLD'});
+// vlaues() - List of values
+List< List<String> > values = countryToStateMap.values();
+System.debug(values);
+
+// Accounts and their cases
+Map<Account, List<Case> accToCaseMap = new Map<Account, List<Case>>();
+Set<Account> accSet = accToCaseMap.keySet();
+List< List<Case> > caseList = accToCaseMap.values();
+// Account Id and their cases
+Map<Id, List<Case>> accIdToCaseMap = new Map<Id, List<Case>>();
+
+
+
+
+
+    
+
+    
+
