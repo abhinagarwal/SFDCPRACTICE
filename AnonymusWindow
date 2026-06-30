@@ -352,6 +352,33 @@ System.debug(countryToStateMap1);
 // bundles of notes/dollars
 
 
+//FOR Loop
+//-----------------------------------------------------
+ List<String> fruits = new List<String>();
+fruits.add('Banana');
+fruits.add('Grapes');
+fruits.add('Orange');
+
+//Traditional for loop only good in case of list
+// not in case of Set , works good for >2000 recs in list
+for(Integer i=0; i < fruits.size(); i++){
+    //logic
+    String fruitName = fruits.get(i);
+    System.debug(fruitName);
+}
+
+//List or Set iteration for loop
+for(String fruitNm: fruits){
+    System.debug(fruitName);
+}
+
+List<Account> accList1 = new List<Account>();
+accList1.add(new Account());
+accList1.add(new Account());
+accList1.add(new Account());
+for(Account act1: accList1){
+    System.debug(act1);
+}
 
 
 
