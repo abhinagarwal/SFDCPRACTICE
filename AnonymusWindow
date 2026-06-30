@@ -326,6 +326,32 @@ List< List<Case> > caseList = accToCaseMap.values();
 // Account Id and their cases
 Map<Id, List<Case>> accIdToCaseMap = new Map<Id, List<Case>>();
 
+Map<String, List<String> > countryToStateMap1 = new Map<String, List<String> >();
+String country = 'India';
+String stateName = 'UP';
+// iteration #1
+if(countryToStateMap1.containsKey(country)){
+    }else {
+countryToStateMap1.put(country,new List<String>{stateName});
+}
+
+// iteration #2 - State is New Delhi
+if(countryToStateMap1.containsKey(country)){
+// logic will be executed
+// Step1 - get the value with the help of get Method
+	List<String> tempList = countryToStateMap1.get(country);
+	tempList.add('New Delhi');
+	countryToStateMap1.put(country, tempList);
+} else {
+//countryToStateMap.put(country,new List<String>{stateName});
+}
+
+countryToStateMap1.put('Australia',new List<String>{'NSW','VIC','QLD'});
+System.debug(countryToStateMap1);
+
+// bundles of notes/dollars
+
+
 
 
 
