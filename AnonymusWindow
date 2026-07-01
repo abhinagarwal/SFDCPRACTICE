@@ -415,7 +415,7 @@ accountMapzz.put('XYZ Corp', '5000');
 accountMapzz.put('ABC Company', '7500');
 
 Set<String> keySet = accountMapzz.keyset();
-for(String key: keysSet){
+for(String key: keySet){
     System.debug(key);
     String value = accountMapzz.get(key);
     System.debug(value);
