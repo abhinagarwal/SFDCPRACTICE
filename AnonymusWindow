@@ -380,6 +380,46 @@ for(Account act1: accList1){
     System.debug(act1);
 }
 
+//WhileLoop
+List<String> fruitszz = new List<String>{'Apple', 'Banana', 'Mango'};
+Integer i = 0;
+	while(i < 0 ){
+		System.debug(' '+fruitszz.get(i) );
+		i++;
+	}
+
+ // DateTime, System ---> now(); -getTime()
+
+System.debug('Before '+System.now());
+Integer j = 0;
+while(j < 2000){
+    System.debug(''+j);
+    j++;
+}
+System.debug('After ' +System.now());
+
+// Do While (executes atleast once)
+	do {
+		System.debug(' '+fruitszz.get(i) );
+	} while( i < 0 );    
+
+    
+// Looping on MAP
+ //how you want to opereate : based on keys or values
+ // Keys then use method keySet()
+ // Values then use method values()
+
+Map<String, String> accountMapzz = new Map<String, String>();
+accountMapzz.put('Acme', '3454');
+accountMapzz.put('XYZ Corp', '5000');
+accountMapzz.put('ABC Company', '7500');
+
+Set<String> keySet = accountMapzz.keyset();
+for(String key: keysSet){
+    System.debug(key);
+    String value = accountMapzz.get(key);
+    System.debug(value);
+}
 
 
 
