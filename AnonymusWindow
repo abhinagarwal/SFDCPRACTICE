@@ -421,7 +421,25 @@ for(String key: keySet){
     System.debug(value);
 }
 
+//Get Set
+//------------------------------------
 
+Animal1 dog =  new Animal1();
+dog.color = 'Brown';
+System.debug(dog.color);
+
+//premitive data type pass by value
+Integer a = 10;
+Integer b = 10;
+CallByDemo.addInteger(a,b);
+System.debug(a);
+System.debug(b);
+
+//Non Premitive type list are pass by reference
+List<String> fruits = new List<String>{'Apple', 'Grapes'};
+    
+CallByDemo.add(fruits); //reference
+System.debug(fruits);
 
     
 
