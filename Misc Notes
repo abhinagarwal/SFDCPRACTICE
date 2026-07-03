@@ -1,7 +1,18 @@
 1. ID field does not work with LIKE keyword in SOQL Querys
 2. INCLUDE and EXCLUDE are 2 important keywords for multi select picklists
+3. There are some fields like ID , Created Date , Created By etc. which are common in all objects
 
 //MULTI PICKLISTS
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c includes ('Lost: Competitor;Lost: Price')
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c = 'Lost: Competitor;Lost: Price'
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c != 'Lost: Competitor;Lost: Price'
+
+ORDER BY
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , CreatedDate FROM Account ORDER BY AnnualRevenue ASC
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , CreatedDate FROM Account ORDER BY AnnualRevenue DESC
+ ///puts null values at last
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , CreatedDate FROM Account ORDER BY AnnualRevenue DESC NULLS LAST
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , CreatedDate FROM Account ORDER BY AnnualRevenue ASC NULLS LAST
+/// the 2nd industry related NUlls condition is not executed its over taken by 1st one AnnualRevenue
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST , Industry ASC NULLS LAST
+/// gernerate a query file->openresource->object Name->all fields come -> select fields->pressquery button -> querys get generated in query editor
