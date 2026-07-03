@@ -1,0 +1,7 @@
+1. ID field does not work with LIKE keyword in SOQL Querys
+2. INCLUDE and EXCLUDE are 2 important keywords for multi select picklists
+
+//MULTI PICKLISTS
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c includes ('Lost: Competitor;Lost: Price')
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c = 'Lost: Competitor;Lost: Price'
+SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c != 'Lost: Competitor;Lost: Price'
