@@ -48,3 +48,30 @@ Select MAX(Amount) FROM Opportunity WHERE AMOUNT IN ( SELECT MAX(AMOUNT) FROM Op
 //Getting only 1 row 
 SELECT Id, Amount FROM Opportunity ORDER BY Amount DESC NULLS LAST LIMIT
 1
+//OFFSET Skip the n rows from the top and show the result,below n=1
+SELECT Id, Amount FROM Opportunity ORDER BY Amount DESC NULLS LAST LIMIT
+1 OFFSET 1
+
+//Fetching the parent data
+SELECT Id, Name, Email, Phone, Account.Name, AccountId,
+Primary_Contact__c FROM Contact
+
+//Account.parent.name *here we are fetching parent of contact's account as well
+SELECT Id, Name, Email, Phone, Account.Name, Account.Parent.Name
+FROM Contact
+
+//Further fetching parent of account
+SELECT Id, Name, Email, Phone, Account.Name, Account.Parent.Name,
+Account.Parent.Parent.Name FROM Contact
+
+SELECT Id, Account.Name, Account.Parent.Name,
+Account.Parent.Parent.Name FROM Contact
+
+SELECT Id, Account.Name, Account.Parent.Name,
+Account.Parent.Parent.Name, Account.Parent.Parent.Parent.Name,
+Account.Parent.Parent.Parent.Parent.Name FROM Contact
+NOTE: We cant query forign key relations more than 5 levels from root in case of child to parent relation query
+
+// Child to parent in the custom lookup
+SELECT Id, Account.Name, Primary_Contact__c FROM Contact
+SELECT Id, Account.Name, Primary_Contact__c,Primary_Contact__r.Name, Primary_Contact__r.Account.Name FROM Contact
