@@ -6,6 +6,7 @@
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c includes ('Lost: Competitor;Lost: Price')
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c = 'Lost: Competitor;Lost: Price'
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c != 'Lost: Competitor;Lost: Price'
+SELECT Name, AccountNumber, Fax, Phone, Rating, Industry, Close_Reason__c, CreatedDate FROM Account WHERE Close_Reason__c excludes ('Lost: Competitor;Lost: Price')
 
 ORDER BY
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , CreatedDate FROM Account ORDER BY AnnualRevenue ASC
@@ -16,3 +17,34 @@ SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue , 
 /// the 2nd industry related NUlls condition is not executed its over taken by 1st one AnnualRevenue
 SELECT Name , AccountNumber , Fax , Phone , Rating , Industry , AnnualRevenue FROM Account ORDER BY AnnualRevenue DESC NULLS LAST , Industry ASC NULLS LAST
 /// gernerate a query file->openresource->object Name->all fields come -> select fields->pressquery button -> querys get generated in query editor
+
+/// Aggrigate function
+count //count is the only aggrigate function that works with out any parameter as well
+      
+      //except count other aggregate functions require parameters
+      // some aggregate functions accept parameters of certain type only
+#Select count() FROM Account WHERE AnnualRevenue != Null
+#Select count(AnnualRevenuw) FROM Account  // gives 
+
+select max(AnnualRevenue) FROM Account
+select min(AnnualRevenue) FROM Account
+
+// fields must be used either in group by or aggregate function
+//if count is used in group by keyword query it should have 1 parameter
+
+#select sum(AnnualRevenue) , Industry , Count(Name) FROM Account GROUP BY Industry
+
+select sum(AnnualRevenue) , Industry , Type , Count(Name) FROM Account GROUP BY Industry , Type ORDER BY Industry DESC NULLS LAST
+
+//we are using alias here which can only be used with Aggreigate functions clause
+// gernally relation ship query is done on child object
+SELECT count(Id) counts , AccountId parentid FROM Contact Group By AccountId
+
+select sum(AnnualRevenue) , Industry FROM Account GROUP BY Industry
+
+//Inner and outer query must not be on same object, so query below gives error
+Select MAX(Amount) FROM Opportunity WHERE AMOUNT IN ( SELECT MAX(AMOUNT) FROM Opportunity)
+
+//Getting only 1 row 
+SELECT Id, Amount FROM Opportunity ORDER BY Amount DESC NULLS LAST LIMIT
+1
