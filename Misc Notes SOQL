@@ -104,5 +104,20 @@ SELECT Id , TYPEOF WHO
                   END,
                   WhatId, Subject , ActivityDate , Status , Priority , Description
                   FROM Task
-            
 
+// Here who.type , what.type will tell about the weather the object is Contact lead etc.             
+SELECT Id, WhoId, Who.Type, WhatId, What.Type, Subject, ActivityDate,
+Status, Priority, Description FROM Task
+
+// Use of who .type in this syntax
+SELECT Id , TYPEOF WHO 
+                  WHEN Contact THEN Id , Name , Email , AccountId
+                  WHEN Lead THEN Id , Name , Company , AnnualRevenue
+                  END,
+                  WhatId, Subject , ActivityDate , Status , Priority , Description
+                  FROM Task WHERE Who.Type IN ('Contact','Lead')  //this filter has to be added to get who or what info if TYPE OF syntax is used
+
+SELECT Id, TYPEOF WHO WHEN Contact THEN Id, Name, Email, AccountId 
+                      WHEN LEAD THEN Id, Name, Company, AnnualRevenue END, WhatId, Subject, ActivityDate, Status, Priority, Description, 
+          TYPEOF What WHEN Account THEN Id, Name, Rating 
+                      WHEN Opportunity THEN Id, Name, StageName, CloseDate END FROM Task WHERE Who.Type IN ('Contact', 'Lead') OR What.Type IN ('Account', 'Opportunity' )
