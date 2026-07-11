@@ -72,6 +72,37 @@ Account.Parent.Parent.Name, Account.Parent.Parent.Parent.Name,
 Account.Parent.Parent.Parent.Parent.Name FROM Contact
 NOTE: We cant query forign key relations more than 5 levels from root in case of child to parent relation query
 
-// Child to parent in the custom lookup
+// Child to parent in the custom lookup : search filed name in lookup field
 SELECT Id, Account.Name, Primary_Contact__c FROM Contact
 SELECT Id, Account.Name, Primary_Contact__c,Primary_Contact__r.Name, Primary_Contact__r.Account.Name FROM Contact
+
+//Parent to child query : search child name in lookup field , where clauses in inner querys are limited to inner querys , 
+  on outer query are applicable to full query result
+SELECT Id, Name, (SELECT Id, Name, Email FROM Contacts WHERE Email <>null), (SELECT Id, CaseNumber FROM Cases WHERE IsClosed=False), (SELECT
+Id, Name, Account__c FROM Invoice__r) FROM Account
+
+//We can write a query inside a child query as well in case if parent to child relation
+// here we are fetching account's contacts , then those contact's cases as well , like wise we can do 5 deep querys in child querys
+
+SELECT Id, Name, (SELECT Id, Name, Email, (SELECT Id, CaseNumber FROM Cases) FROM Contacts WHERE Email <> null), (SELECT Id, CaseNumber FROM
+Cases WHERE IsClosed=False), (SELECT Id, Name, Account__c FROM
+Invoice__r) FROM Account
+
+//LIKE does not work woth ID or master detail field
+
+//Polymorphic query , who id (lead , contact) for task and what ID other objects except leasd and contacts (Oppt account  etc)
+
+Select ID , Who.name , Who.Email , Who.phone , Who.company , WhatId , Subject , ActivityDate , Status , Priority , Description form Task
+
+// in the above query WHO's name email campany are in both lead and contact ,but company is only in  contact so query will give error as field should be in
+// both who object as WHO Id on the task can be of contact or of Lead
+//so for this uncertainity we use poly morphic query
+
+SELECT Id , TYPEOF WHO 
+                  WHEN Contact THEN Id , Name , Email , AccountId
+                  WHEN Lead THEN Id , Name , Company , AnnualRevenue
+                  END,
+                  WhatId, Subject , ActivityDate , Status , Priority , Description
+                  FROM Task
+            
+
