@@ -121,3 +121,30 @@ SELECT Id, TYPEOF WHO WHEN Contact THEN Id, Name, Email, AccountId
                       WHEN LEAD THEN Id, Name, Company, AnnualRevenue END, WhatId, Subject, ActivityDate, Status, Priority, Description, 
           TYPEOF What WHEN Account THEN Id, Name, Rating 
                       WHEN Opportunity THEN Id, Name, StageName, CloseDate END FROM Task WHERE Who.Type IN ('Contact', 'Lead') OR What.Type IN ('Account', 'Opportunity' )
+
+// UNABLE_LOCK_ROW Error
+        
+        // Same or child record or parent record already in use in running 
+        // trigger and we are trying to access it so it will give error
+        // that unable to lock row
+        // 
+        /** Precautions we can take
+         * Use Order By Clause
+         * Contact Record - Select Id FROM Contact Order BY AccountId
+         * use FOR keword with these values VIEW| REFERENCE | UPDATE
+         **/
+        
+        public static void UNABLE_LOCK_ROW(){
+            List<Contact> conList = [SELECT Id, Name,Email FROM Contact FOR UPDATE];
+            for(Contact con : conList){
+                //process going on
+            }
+            List<Account> accList = [SELECT Id, Name , Rating FROm Account FOR UPDATE];
+        }
+    // if we use FOR VIEW like we have used FOR UPDATE the system updates
+    // 2 fields LastViewDate , LastReferenceDate and this gets updated for
+    // child objects as well if we access there parent object
+    // these records are also visible in the recently viewed list on UI
+    
+SELECT Id, CaseNumber , LastViewedDate , LastReferencedDate FROM Case LIMIT 10 FOR VIEW
+
