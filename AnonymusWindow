@@ -478,7 +478,31 @@ circle.displayArea();  //<- this method has to be present in theparent class eit
 //parseResponse is a method of virtula class
 //it fetches data from s3 and parse this was over wridden by client
 
+////----Method Overloading----
+//Same method name but diff params or number of params
+//or type of params
+////IF we create a class with same name as the Salesforce standard class
+///like Database then it will start referring out class insted of
+/// standard class
 
+Account acc = new Account();
+acc.Name = 'PantherSchools.com';
+acc.Rating = 'Hot';
+acc.Industry = 'Education';
+PolymorfDML.create(acc);
+//or use
+//Database.insert(acc);
+
+Account acc1 = new Account();
+acc1.Name = 'academy.PantherSchools.com';
+acc1.Rating = 'Hot';
+acc1.Industry = 'Education';
+
+List<Account> accList = new List<Account>();
+accList.add(acc);
+accList.add(acc1);
+PolymorfDML.create(accList);
+System.debug(acc.Id);
     
 
     
