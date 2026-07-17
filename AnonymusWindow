@@ -440,6 +440,44 @@ List<String> fruits = new List<String>{'Apple', 'Grapes'};
     
 CallByDemo.add(fruits); //reference
 System.debug(fruits);
+//SOQL Demo
+SOQLDEmo.query();
+SOQLDEmo.query_withparam('eduction');
+List<Id> accountIdSet = new List<Id>();
+SOQLDEmo.query(accountIdSet);
+SOQLDEmo.polymorphic();
+SOQLDEmo.searchRecords('cloudy');
+
+
+//DML Statements
+DMLDemo.insertDemo();
+List<String> accName =  new List<String>();
+DMLDemo.insert1(accName);
+DMLDemo.update1();
+DMLDemo.delete1();
+
+//Inheritance - virtual class
+RedMarker Rmarker =  new RedMarker();
+Rmarker.printInfo();
+Rmarker.write_new();
+
+//Inheritance - Abstract class
+Circle cir = new Circle(8.5);
+cir.displayInfo();
+
+ //Store the instance of child class in parent 
+ //class
+Shape circle = new Circle(8.5);
+//Shape has instance of circle
+System.debug(circle);
+circle.displayArea();  //<- this method has to be present in theparent class either in default impl or abstract way
+
+//example: Apex dev kit for s3 you have made
+//it has 10+ classes
+//1 class is Abstract/virtula(AWSS3Handler)
+//parseResponse is a method of virtula class
+//it fetches data from s3 and parse this was over wridden by client
+
 
     
 
