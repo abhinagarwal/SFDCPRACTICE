@@ -503,7 +503,34 @@ accList.add(acc);
 accList.add(acc1);
 PolymorfDML.create(accList);
 System.debug(acc.Id);
-    
+//Interface
+//cant define static method in interface
+Electronics et = new Electronics();
+//Below two method also show STATIC POLYMORPHISM 
+//because at compile time we know the defnition of methods
+//is different and they are 2 diffrent methods
+et.calculateDiscount(100);
+et.calculateDiscount(100,0.2);
+
+//Here we are putting the instance of implementing class
+//in the interface type , so olny method which is in the 
+//interface will be called , 2nd method with 2 params will not
+//be called
+//This is also called DYNAMIC POLYMORPHISM as compiler has to 
+// check and decide from where the method will be called
+IProduct product = new Electronics();
+product.calculateDiscount(1000);  //child class method will be called
+
+//product.calculateDiscount(1000,0.2);
+
+//Trigger
+
+Account acc = new Account( Name = 'Amazon.com');
+Account acc1 = new Account(
+    Name = 'Amazon.in 2',
+    Industry = 'Technology');
+
+insert new List<Account>{acc,acc1};    
 
     
 
