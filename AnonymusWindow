@@ -1,3 +1,14 @@
+
+//Classes Created in resilient otter
+/*
+Animal,ArithmaticOperations,Vehicle,MyConstants,CallStack,Scopes,CurrenceyManager,CallStackDemo,SOQLDemo,CallByDemo,DMLDemo,Marker,Shape,Circle
+StripeHandler,StripePaymentHandler,StripePaymentHelper,PolymorfDML,Electronics,WordDocument,ClassWithInterface,AccountTriggerDispatcher,AccountTriggerHandler
+ContactTriggerHelper
+
+Interface:IProduct,ILogger,IDocument
+
+Trigger:LeadTrigger,AccountTrigger,ContactTrigger
+*/
 /*Animal dog =  new Animal();
 System.debug('Classs'+dog);
 //dog.name = 'Max';
