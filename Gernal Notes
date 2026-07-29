@@ -1,0 +1,17 @@
+Handling Files in SF
+1.Content Document - Holds info about file , word document , ppt etc
+
+2.Content Document will have one or more ->Content Version(content of the doument that too version wise , IsLatest Field is there to identify the 
+                                          latest version , version Data gives the info od content of the content document
+ Content Document(parent) is connected to Content Verrsion (child) through content document ID
+These 2 object can sit indeopendently , we can cerate diffrent vesions
+when we upload a file in files in SF it creates Content Doc and Content version record
+
+3.2.Content Document Link (Junction Object)- Now if we connect that file to an object Acc , contact etc. we do that through Content Documet link
+                                             Connects S-object and File
+
+//When a document is created in files content document link is created linking the doc to user , it can be seen in shared with section
+//Content Document and version has cascade lookup relation i.e parent deleted so child also deleted and then Link entry also gets deleted
+
+//when we upload a file from notes and attach section of object then 2 entries are created in the Content Document Link
+  1 for user , 1 for Object 
