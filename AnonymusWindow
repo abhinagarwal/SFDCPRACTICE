@@ -541,7 +541,28 @@ Account acc1 = new Account(
     Name = 'Amazon.in 2',
     Industry = 'Technology');
 
-insert new List<Account>{acc,acc1};    
+insert new List<Account>{acc,acc1};
+
+//Recurrsive trigger
+List<Case> caseList = new List<Case>();
+for(Integer i=0;i<250;i++){
+Case newRecord = new Case();    
+newRecord.Subject = 'c.Subject';
+newRecord.Description = 'c.Description';
+newRecord.Status = 'New';
+newRecord.Origin = 'Email';
+newRecord.Priority = 'Low';
+newRecord.ContactId = '003Qy00001VRvO1IAL';
+caseList.add(newRecord);
+}
+insert caseList;
+
+//Files
+ContentVersion version =  new ContentVersion();
+version.Title = 'Abc.txt';
+version.PathOnClient = 'Abc.txt';
+version.VersionData = Blob.valueOf('This is a simple text');
+insert version;
 
     
 
