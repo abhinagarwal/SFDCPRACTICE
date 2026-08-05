@@ -14,4 +14,6 @@ when we upload a file in files in SF it creates Content Doc and Content version 
 //Content Document and version has cascade lookup relation i.e parent deleted so child also deleted and then Link entry also gets deleted
 
 //when we upload a file from notes and attach section of object then 2 entries are created in the Content Document Link
-  1 for user , 1 for Object 
+  1 for user , 1 for Object
+
+//first used id in content document version tells which object the file was first associated to
