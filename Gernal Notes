@@ -17,3 +17,15 @@ when we upload a file in files in SF it creates Content Doc and Content version 
   1 for user , 1 for Object
 
 //first used id in content document version tells which object the file was first associated to
+
+
+//TEST CLASS
+
+@isTest annotation is used over class name as well as method name
+//if there is no test method in class it is not considered as test class , there will be no code coverage
+//@TestSetup annotation is used over the method that creates data that can be used across different test methods.
+//if Test Setup method is failing then other test method will not run
+//if test setup provided data is changed in one of the test method then for next method orignal test setup created data is available (chnages in one method are reverted)
+//create atlist 1 test method for every method
+//Test.Start and Test.stop should be used only for the code that is triggering the logic
+//if test setup is not creating the data for your case then create data in the test method
