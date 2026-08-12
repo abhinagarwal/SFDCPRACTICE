@@ -35,7 +35,42 @@ when we upload a file in files in SF it creates Content Doc and Content version 
 //There is a private method in a class that is used inside the class commonly , this method
 //being private willnot be available in test class , to test this method via test class
 //we user @TestVisible annotation above method
+
+//UserInfo Class gives details about users for both test and non test classes
 //RUN AS : Running the test as a real user not as admin
+    1. Insert a user in the test class
+    2. Run the tests as per that user
+    3. runAs alwaws runs for a record , not object or fields level permission or DML statement
+        System.runAs(userName){
+                  //Code that we want to run 
+                }
+in SOQL query to enforce security
+//WITH USER_MODE
+//WITH SYSTEM_MODE
+//WITH SECURITY_ENFORCED
+
+ Test Class Best Practices
+
+1. Setup Method
+      Utility
+2.Test.StartTest(),Test.StopTest();
+3.Assert Methods
+4.Bulk Record Testing
+5.Use Try and Catch where applicable
+
+Test calss must need to have
+
+@testSetup Method
+2.Test.StartTest(),Test.StopTest();
+Assert Class Method
+Use Try and Catch where applicable
+Positive and negative scenario
+Testing for bulk records
+
+Test class good to have
+runAs
+Utility Class
+
 
 SOME TOOLS
 PMD , SMD , SONAR CLOUD , SONAR CUBE etc.
