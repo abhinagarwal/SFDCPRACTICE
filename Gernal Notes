@@ -29,3 +29,13 @@ when we upload a file in files in SF it creates Content Doc and Content version 
 //create atlist 1 test method for every method
 //Test.Start and Test.stop should be used only for the code that is triggering the logic
 //if test setup is not creating the data for your case then create data in the test method
+////Utility Class->Setup Method->TestCases(Test Methods)
+//Create sepetrate utility class for diffrent object
+//Assert methods
+//There is a private method in a class that is used inside the class commonly , this method
+//being private willnot be available in test class , to test this method via test class
+//we user @TestVisible annotation above method
+//RUN AS : Running the test as a real user not as admin
+
+SOME TOOLS
+PMD , SMD , SONAR CLOUD , SONAR CUBE etc.
