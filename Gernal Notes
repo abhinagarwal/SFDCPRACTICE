@@ -71,6 +71,19 @@ Test class good to have
 runAs
 Utility Class
 
-
 SOME TOOLS
 PMD , SMD , SONAR CLOUD , SONAR CUBE etc.
+
+//// Asynchronous Apex////
+
+MIXED DML OPERATION Error - When we create both the objects togather  in same transaction Setup object (User , Group etc) and Non Setup object(account contact etc)
+Any object that affects salesforce security like User etc. is a setup object , in case of User object on updating certain fields triggers this exception 
+eg. Role Id
+
+To overcome this error we use future method
+Puts the method in Flex Queue - So not considerd as synchronous calling so no MIXED DML OPERATION Error
+@future annotation
+only primitive data type accepted not sobject type , no return , public static or global method
+
+
+
