@@ -75,6 +75,12 @@ SOME TOOLS
 PMD , SMD , SONAR CLOUD , SONAR CUBE etc.
 
 //// Asynchronous Apex////
+1.Future
+2.Queuable
+3.Batch
+4.Schedulable
+
+////FUTURE////
 
 MIXED DML OPERATION Error - When we create both the objects togather  in same transaction Setup object (User , Group etc) and Non Setup object(account contact etc)
 Any object that affects salesforce security like User etc. is a setup object , in case of User object on updating certain fields triggers this exception 
@@ -84,6 +90,26 @@ To overcome this error we use future method
 Puts the method in Flex Queue - So not considerd as synchronous calling so no MIXED DML OPERATION Error
 @future annotation
 only primitive data type accepted not sobject type , no return , public static or global method
+If the method is making a callout then the method must have @future(callout =true)
+
+in devconsole we see the log as futureHandler , this method has to be evaluated in dev console don't gives any UI errors
+
+Future Limitations
+1.Can not pass sObject or List<sObject> as a method parameter
+2. Can not call future from future OR We can not chain future method (cant track as dont return any job id , not sure when will it run in flex queue)
+3. We can not monitor future method because it does not return any Job Id
+4. Future methods best work for the small size of records. 10 OR 20 Records
+5. There can be only 50 future methods in a Single Transaction 
+
+////QUEUABLE////
+
+1. Its a class that implements System.Queueable interface , need
+2. we can call furure from queable , we can chain queueable , 
+3. queable accepts all data typesa as well becaue it is a class , and class has constructor in which we can pass the parameters of diff type
+5. it also has possibility of data loss so use the ids and fetch data
+
+
+
 
 
 
