@@ -564,5 +564,57 @@ version.PathOnClient = 'Abc.txt';
 version.VersionData = Blob.valueOf('This is a simple text');
 insert version;
 
+//-----------------------------
+ContentDocumentLink link = new ContentDocumentLink();
+link.ContentDocumentId = '069Qy00000P0Em9IAF';
+link.LinkedEntityId = '003Qy00001VRvO1IAL';
+insert link;
+
+//DML Methods
+//---------------------------------------------
+
+Contact con = new Contact(
+    LastName = 'Singhss',
+    Email = 'absdf@ggx.com',
+    AccountId = '001Qy00002DgmKpIAJ'
+);
+Contact con1 = new Contact(
+    Email = 'absdf@gxy.com',
+    AccountId = '001Qy00002DhKixIAF'
+);
+
+List<Contact> conList = new List<Contact>();
+conList.add(con);
+conList.add(con1);
+//Insert
+//Insert conList;
+//Insert(conList); //All or None
+
+List<Database.SaveResult> saveResultList = Database.insert(conList,
+false);
+for(Database.SaveResult sr: saveResultList){
+if(!sr.isSuccess()){ // Error Condition
+List<Database.Error> errors = sr.getErrors();
+System.debug(' errors '+ errors );
+System.debug(' errors size '+ errors.size());
+String errorMessage = String.join(errors, ' ||:|| ');
+System.debug(errorMessage);
+}
+}
+
+
+////queueable
+List<Contact> conList = [Select Id , Name , Email from Contact LIMIT 10];
+AsyncContactManager manager = new AsyncContactManager(conList);
+//Id jobId = System.enqueueJob(manager);
+Id jobId = System.enqueueJob(manager, 2); // will run the job after 2 mins 
+										  // it can be done between 0-10 mins
+										  // 
+System.debug('Job Id is : '+jobId);
+
+
+AsyncContactManager manager = new AsyncContactManager(conList);
+manager.execute(null);
+
     
 
