@@ -142,6 +142,24 @@ Database.batchable<sObject> interface , avalilable in Database NAMESPACE
 
 Default batch size is 200 , maximum 2000 , minimum 1 
 if start method is iterator then no upper limit
+
+Batch Job Status
+
+Holding - submitted to flex , waiting for resources
+Queued - resources now available , waiting for execution
+Preparing - start method
+Processing - execute method
+Aborted - Aborted by user or form apex
+Completed - Completed without faliure
+Failed - Job experienced system faliure
+
+Id jobid = Database.executeBach(instance of batch apex);
+Id jobid = Database.executeBach(instance of batch apex,batch size);
+
+No of execute method calls = No.of records/Chunk Size
+Each execute call has its own governer limits
+for a set of records if 1 exceute call fails then the other call containg next set of records can process successfully
+they are not related to each other
         
 
 
