@@ -1,3 +1,12 @@
+FOR LWC
+Visit the below link to get access to the code.
+
+https://gitlab.com/sfdcamit/lwcrecipies/-/tree/master/force-app/main/default/lw
+
+Here is the Object Metadata File used in Project - 
+https://gitlab.com/sfdcamit/lwcrecipies/-/tree/master/force-app/main/default/objects
+
+----------------------------------------------------------------------------------------------
 Handling Files in SF
 1.Content Document - Holds info about file , word document , ppt etc
 
@@ -112,6 +121,29 @@ Future Limitations
 7. output of first job can be passed to the input of second JOB with the help of constructor
 8. we can call 1 queueable form another then another 1 from previous one and so on , for dev org this limit is 5 for more than this the error comes
 |FATAL_ERROR|System.AsyncException: Maximum stack depth has been reached.
+
+
+////BATCH/////
+
+Future-Small set of records 10-20, 50
+Queable - 5k,10k records , pass 1 output to other
+
+BATCH- Process large amount of data , 50 million , fetching datafrom external system , highrst set of governer limits
+Database.batchable<sObject> interface , avalilable in Database NAMESPACE
+  has 3 methods - START - Only onec and will always execute, fetch records and pass to execute , using 2 classes
+                            Database.QueryLocator (QueryLocator class in Database namespace)
+                            Database.Iterator (Iterator class in Datatabase Namespace)
+                                      We have to create a custom iterator
+                                      can process ony 50K records as SOQL allows only that many
+                  EXECUTE - run if it has records , heart of batch
+                            Business Logic
+                  FINISH - Only Once and will always execute
+                            Perform cleanup logic , sending email , calling another batch apex
+
+Default batch size is 200 , maximum 2000 , minimum 1 
+if start method is iterator then no upper limit
+        
+
 
 
 
