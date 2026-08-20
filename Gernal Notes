@@ -107,6 +107,11 @@ Future Limitations
 2. we can call furure from queable , we can chain queueable , 
 3. queable accepts all data typesa as well becaue it is a class , and class has constructor in which we can pass the parameters of diff type
 5. it also has possibility of data loss so use the ids and fetch data
+6. Every queable apex comes with a freh set of governer limits while in Syncronous methods its 6 MB heap size , 10 S CPU time out , 100 SOQL Queries and
+    150 DML statements
+7. output of first job can be passed to the input of second JOB with the help of constructor
+8. we can call 1 queueable form another then another 1 from previous one and so on , for dev org this limit is 5.
+
 
 
 
