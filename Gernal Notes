@@ -160,8 +160,13 @@ No of execute method calls = No.of records/Chunk Size
 Each execute call has its own governer limits
 for a set of records if 1 exceute call fails then the other call containg next set of records can process successfully
 they are not related to each other
-        
 
+If we create a batch class for one object and query records related to that object  but pass other type object in execute method
+then the bath will not give any output
+
+Database.executeBatch cant be called from a batch start , batch execute or future method
+        
+For chanining of batch calsses we nedd to call the Database.executeBatch  in finish method
 
 
 
