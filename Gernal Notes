@@ -168,6 +168,13 @@ Database.executeBatch cant be called from a batch start , batch execute or futur
         
 For chanining of batch calsses we nedd to call the Database.executeBatch  in finish method
 
+Queable can be called from Start , Finish or execute method of a batch class but we should avoid calling it from execute
+as execute is called may times and it can shoot flex queue limits
+
+Batch can be called from queueables as well
+
+
+
 
 
 
