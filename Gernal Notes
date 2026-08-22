@@ -143,7 +143,7 @@ Database.batchable<sObject> interface , avalilable in Database NAMESPACE
 Default batch size is 200 , maximum 2000 , minimum 1 
 if start method is iterator then no upper limit
 
-Batch Job Status
+////Batch Job Status
 
 Holding - submitted to flex , waiting for resources
 Queued - resources now available , waiting for execution
@@ -172,6 +172,16 @@ Queable can be called from Start , Finish or execute method of a batch class but
 as execute is called may times and it can shoot flex queue limits
 
 Batch can be called from queueables as well
+
+//////Database.Stateful interface
+
+Maintains the state of batch instance variables, means it keeps the value of class,instance variables in alll 3 methods same i.e
+Start,Execute,Finish , as these methods are not connected and run in seprate threads so the values of class variables are not
+maintained across methods
+So we use Database.Stateful interface in the class to maintain the state of variables
+
+Database.Stateful  is a marker interface as it has no methods
+
 
 
 
