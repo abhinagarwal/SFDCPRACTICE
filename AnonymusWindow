@@ -622,8 +622,18 @@ ContactManager.dummyMethod();
 
 AccountBatchClass batch = new AccountBatchClass();
 Id jobId = Database.executeBatch(batch);
-
 Id jobId = Database.executeBatch(new ContactBatchClass());
+
+//Scheduable Apex
+ContactBatchClassSchedulable schedule = new ContactBatchClassSchedulable();
+schedule.execute(null);
+
+	//We  can schedule a schedulable apex
+ 	//1. Using Salesforce Setup,
+	//2. Using CRON expression - (this can also be used in 
+								 //salesforce setup)
+
+
 
     
 
