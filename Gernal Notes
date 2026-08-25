@@ -182,6 +182,21 @@ So we use Database.Stateful interface in the class to maintain the state of vari
 
 Database.Stateful  is a marker interface as it has no methods
 
+////SCHEDULABLE/////
+
+        //Call Batch Apex
+        //Call Normal Apex Class
+        //Call a call out
+        //Write whole Logic in execute method itself
+        //So, Scheduleable not limited to batch execution
+        //Call an internal method as well
+
+Schedueable when scheduled returns a CRON job id which can be used in Object CronTrigger and CornJobId to get the details of scheduled job
+Scheduling job via system confing hepls in scheduling daily , weekley monthly or day specific scheduling of logic
+but if we wnat to do more close scheduling like every 15 mins , 30 mins etc. then we use CRON Expression
+
+
+
 
 
 
