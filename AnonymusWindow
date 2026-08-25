@@ -616,5 +616,14 @@ System.debug('Job Id is : '+jobId);
 AsyncContactManager manager = new AsyncContactManager(conList);
 manager.execute(null);
 
+ContactManager.dummyMethod();
+
+//BAtch Apex
+
+AccountBatchClass batch = new AccountBatchClass();
+Id jobId = Database.executeBatch(batch);
+
+Id jobId = Database.executeBatch(new ContactBatchClass());
+
     
 
