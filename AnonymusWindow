@@ -633,6 +633,11 @@ schedule.execute(null);
 	//2. Using CRON expression - (this can also be used in 
 								 //salesforce setup)
 
+//Scheduable Apex
+ContactBatchClassSchedulable schedule = new ContactBatchClassSchedulable();
+schedule.execute(null);
+String CRON_EXP = '0 05 * * * ?';
+System.schedule('ContactBatchClassSchedulable 1',CRON_EXP , schedule);
 
 
     
