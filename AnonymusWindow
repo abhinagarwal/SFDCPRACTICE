@@ -640,5 +640,37 @@ String CRON_EXP = '0 05 * * * ?';
 System.schedule('ContactBatchClassSchedulable 1',CRON_EXP , schedule);
 
 
+//Exception
+		//Null Pointer exception
+String fullName; // Amit Singh
+	// safe navigation operator (?.) - started using it
+	// null coalescing operator ??
+	// conditional statement - widely used
+// Amit Sinhg
+//if(fullName==null){
+// fullName = 'Amit Singh';
+//}
+
+fullName = fullName ?? 'Barbara Levi';
+List<String> names1 = fullName?.split(' ');
+System.debug(names1);
+if(fullName !=null){
+List<String> names = fullName.split(' ');
+System.debug(fullName);
+}
+print('Amit Singh');
+public static void print(String fullName){
+if(fullName !=null){
+List<String> names = fullName.split(' ');
+System.debug(names);
+System.debug(fullName);
+Panther Schools
+}
+}
+Account acc; // null
+acc = acc ?? new Account();
+acc.Name = 'Salesforce.com';
+
+
     
 
