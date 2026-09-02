@@ -196,6 +196,13 @@ Scheduling job via system confing hepls in scheduling daily , weekley monthly or
 but if we wnat to do more close scheduling like every 15 mins , 30 mins etc. then we use CRON Expression
 
 
+///Exceptions////
+
+1.sObject Exception - using a filed of an object refrence which is not fetched in query , if this field is used on RHS
+  FIX-fetch the corrsponding field in SOQL query
+2. NULL POINTER EXCEPTION - 
+
+
 
 
 
