@@ -671,6 +671,63 @@ Account acc; // null
 acc = acc ?? new Account();
 acc.Name = 'Salesforce.com';
 
+//Exceptions
+	//Try Catch
+Contact con = new Contact();
+con.FirstName = 'Ravi';
+con.LastName  = 'Sandlers';
+con.Email     = 'abcfff@ggg.com';
+con.AccountId = '001Qy00002DZwi9IAD';
+/*system.DmlException: Insert failed. First exception on row 0; first error: FIELD_CUSTOM_VALIDATION_EXCEPTION
+, Contact Title and Phone 
+Cannot be Blank: []*/
+//insert con;
+///As we do the insert operation the validation rules triggers
+//and throws exception
+try{
+    
+    //this will trigger null pointer exception
+    String fullName;
+    List<String> names =fullName.split('');
+    
+    insert con; //DML Exception
+    
+// }catch(System.Exception ex){ //Handling an exception
+    //we use system.exception class here as it is super
+    //class of all exceptions
+    //in this case System.DMLexception triggers
+    //google exceptions in salesforce will give list
+    
+}catch(System.DMLException ex){
+    //these are commpin methods of all exceptions
+    //there are specific exception messages as well
+    System.debug('DML Exception');
+    System.debug(ex.getMessage());
+    System.debug(ex.getCause());
+    System.debug(ex.getStackTraceString());
+    //trigger->handler->helper->dml->trigger->handler->
+    //->helper ->DML -> exception
+}catch(System.Exception ex){
+    //here we are adding genernal exception class
+    //
+    System.debug('Exception');
+    System.debug(ex.getMessage());
+    System.debug(ex.getCause());
+    System.debug(ex.getStackTraceString());
+ //IN sequesce system exception should be in the last after
+//specific exceptions , otherwise we will get error that
+// exception is already caught system
+//as the exception is caught in the Super.Exception parent class
+}finally{
+    // Always get called
+    //Clean up logic
+    //clear the collection variables
+    
+    //QQ:Diffrence between final and finally
+} 
+
+//multiple catch blocks can be there
+//try block should always be there , with catch or finally block
 
     
 
