@@ -202,6 +202,12 @@ but if we wnat to do more close scheduling like every 15 mins , 30 mins etc. the
   FIX-fetch the corrsponding field in SOQL query
 2. NULL POINTER EXCEPTION - as every variable has a default null as value in it , if we do some opration on variable having
    only this null value then we get the null pointer exception
+**refer anonymus notes
+
+List exception comes when we try to access an elemenr from the list which is not there in list,index wise
+Query exception when we are putting the result of a SOQL query in the Object Instance, whcih can hold 1 record , not 0 or more than 1
+so use list before soql querys
+
 
 
 
