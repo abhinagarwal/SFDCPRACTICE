@@ -206,7 +206,12 @@ but if we wnat to do more close scheduling like every 15 mins , 30 mins etc. the
 
 List exception comes when we try to access an elemenr from the list which is not there in list,index wise
 Query exception when we are putting the result of a SOQL query in the Object Instance, whcih can hold 1 record , not 0 or more than 1
-so use list before soql querys
+so use list before soql query.
+
+Nebula Logger-git hub - logging tool available as a managed package
+
+When we use database dml we dont get the System.exceptioon refrence , in that case we use custom logging framework
+using the errors  reutrned by Database.insert()
 
 
 
