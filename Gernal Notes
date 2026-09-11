@@ -213,6 +213,19 @@ Nebula Logger-git hub - logging tool available as a managed package
 When we use database dml we dont get the System.exceptioon refrence , in that case we use custom logging framework
 using the errors  reutrned by Database.insert()
 
+//Limits in Sync and Async Apex
+Both Sync , Async DML Statement is 150
+SOQL - 100 , Sync
+SOQL - 200 , Async
+CPU Time out - 10 sec Sync
+               60 sec Async
+Heap  - 6mb Sync
+        12 mb Async
+
+We can make integeration call forom schedule apex without using database.allowcallout interface
+
+
+
 
 
 
