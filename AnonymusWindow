@@ -729,5 +729,34 @@ try{
 //multiple catch blocks can be there
 //try block should always be there , with catch or finally block
 
+//Custom exception
+OpportunityException myException = new OpportunityException();
+myException.setMessage('Opportunity amount cant be less than 10 k');
+
+try{
+    throw myException;
+}catch(System.Exception ex){
+    System.debug(ex.getMessage());
+    System.debug(ex.getCause());
+    System.debug(ex.getStackTraceString());
+    
+    //Now we dont want debug statements in production,
+    //so we use a system label /custom label by which we can
+    //control if we need to execute the debug statements or not
+    if(Boolean.ValueOf(System.Label.USE_DEBUG)) {
+        DebugUtil.debug(ex.getMessage());
+    }
+    
+}
+
+//Scheduler,callout
+
+GernalBatchClassSchedulable.execute();
+
+/*Line: 722, Column: 1
+System.CalloutException: Unauthorized endpoint, 
+please check Setup->Security->Remote site settings. endpoint 
+    = 
+    http://th-apex-http-callout.herokuapp.com/animals/1*/
     
 
