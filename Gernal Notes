@@ -224,6 +224,13 @@ Heap  - 6mb Sync
 
 We can make integeration call forom schedule apex without using database.allowcallout interface
 
+            //when we want to put restriction based on user we run as user mode
+            //other wise it should be in system mode by default
+            //Execute anonymus is in User Mode by default
+            //Execution in a class is in System mode
+            //Direct DML and Database DML has sysntax for both the modes
+            //DML Exception class has methods that gives the details of fields causing errors
+
 
 
 
