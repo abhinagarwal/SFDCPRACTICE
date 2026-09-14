@@ -231,6 +231,13 @@ We can make integeration call forom schedule apex without using database.allowca
             //Direct DML and Database DML has sysntax for both the modes
             //DML Exception class has methods that gives the details of fields causing errors
 
+// With Sharing without sharing
+-> With sharing gives check on the records that user can access in that particular class
+-> Without sharing is giving access to the records in System mode
+->Calling a method of class with either type of sharing in another class method behaves as per its class sharing 
+->Extending a class with a with/without shareing class will behave as the sharing of parent class
+->class with no sharing specified , extending or called in a sharing / non sharing specified class will follow the rule of that class
+
 
 
 
