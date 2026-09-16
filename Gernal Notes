@@ -248,7 +248,8 @@ null vs blank : null no space in heap memory , blank space in heap memmory by no
       if used in DML and for loop then no need to check the size as list is blank here
       if list is used for accessing a record using index then we need to check ths size before as the value on index can be null here
  3. Keep one line in catch block , ie a method call that accepts System.Exception.
- 4. 
+ 4. Don't use dummy code coverage in apex class test
+ 5. Dont use seeAll Data true or Existing data in apex class test
 
 
 
