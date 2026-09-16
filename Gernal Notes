@@ -241,11 +241,14 @@ We can make integeration call forom schedule apex without using database.allowca
 //REVISIT - Trigger framework , Getter Setter , Governer Limits
 
 //BEST Practices for writing APEX Code
+null vs blank : null no space in heap memory , blank space in heap memmory by no value
   1. Class Name capital, if used in LWC user LWC in between , should be with sharing , not a global
   2. for a list if there are no values in it , weather using a initlization with new key word or directly putting records via query
      then 
-      if used in DML and for loop then no need to check the size
-      if list is used for accessing a record using index then we need to check ths size before
+      if used in DML and for loop then no need to check the size as list is blank here
+      if list is used for accessing a record using index then we need to check ths size before as the value on index can be null here
+ 3. Keep one line in catch block , ie a method call that accepts System.Exception.
+ 4. 
 
 
 
