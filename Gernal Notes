@@ -239,6 +239,7 @@ We can make integeration call forom schedule apex without using database.allowca
 ->class with no sharing specified , extending or called in a sharing / non sharing specified class will follow the rule of that class
 
 //REVISIT - Trigger framework , Getter Setter , Governer Limits
+   Search : index fields and skinny tables in salesforce
 
 //BEST Practices for writing APEX Code
 null vs blank : null no space in heap memory , blank space in heap memmory by no value
@@ -250,6 +251,9 @@ null vs blank : null no space in heap memory , blank space in heap memmory by no
  3. Keep one line in catch block , ie a method call that accepts System.Exception.
  4. Don't use dummy code coverage in apex class test
  5. Dont use seeAll Data true or Existing data in apex class test
+ 6. Refrain from using like and not like key words in SOQL querys for tables with large number of records 
+     so , Add more filters , Limit statemet , use filters indexed fields (these can only be created by salesforce) external id , lookup fields,
+    Use SOSL for search functionality
 
 
 
