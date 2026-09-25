@@ -255,6 +255,17 @@ null vs blank : null no space in heap memory , blank space in heap memmory by no
      so , Add more filters , Limit statemet , use filters indexed fields (these can only be created by salesforce) external id , lookup fields,
     Use SOSL for search functionality
 
+//SCHEMA CLASSES
+
+*Any object weather standard or custom will be stored under the object called custom object, this object is not directly visible , its is visible in salesforce 
+inspector when we switch on TOOLING API , we can query this object in APEX without tooling API , tooling API will be used via integration , So the 
+SCHEMA CLASSES come into picture now.
+
+*
+
+
+
+
 
 
 
