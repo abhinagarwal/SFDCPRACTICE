@@ -261,7 +261,21 @@ null vs blank : null no space in heap memory , blank space in heap memmory by no
 inspector when we switch on TOOLING API , we can query this object in APEX without tooling API , tooling API will be used via integration , So the 
 SCHEMA CLASSES come into picture now.
 
-*
+*Schema classes have various classes for getting , object details , field details etc.
+
+//2026 RElease new features
+
+// 
+
+//using of .template metod of string to pass values dynamically
+
+// using ''' ''' to pass a long content string.
+
+//Rendering PDF APEX
+
+  * usually a visual force page is created to render as pdf and in that the code to generate pdf is passed
+
+  * now BLOB.topdf() method is used for simple pdf , but it cant be used for complex cfancy pdf.
 
 
 
