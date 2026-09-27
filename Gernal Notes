@@ -289,7 +289,6 @@ public class PDFController {
     }
 }
 
-// Pattern and Matcher classes
 
 
 html<apex:page controller="PDFController" renderAs="pdf" showHeader="false" sidebar="false" standardStylesheets="false">
@@ -326,6 +325,12 @@ html<apex:page controller="PDFController" renderAs="pdf" showHeader="false" side
         </body>
     </html>
 </apex:page>
+
+
+
+//New Security features summer 2026
+
+// Pattern and Matcher classes
 
 
 
