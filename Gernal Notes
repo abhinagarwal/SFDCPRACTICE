@@ -332,6 +332,8 @@ html<apex:page controller="PDFController" renderAs="pdf" showHeader="false" side
 
 // Pattern and Matcher classes
 
+  it has pattern class and Matcher class , use can be seen on google
+
 
 
 
