@@ -1,3 +1,4 @@
 * Record committed via screen flow are not reverted
 * Automation lightning application can be enabled to monitor automation /flows
 * Anything in record triggered flow is rolled back , in screen flow its not rolled back
+* Compound field like Full Nam eof contact , user etc are not directly acessible in a the flow.
