@@ -2,3 +2,4 @@
 * Automation lightning application can be enabled to monitor automation /flows
 * Anything in record triggered flow is rolled back , in screen flow its not rolled back
 * Compound field like Full Nam eof contact , user etc are not directly acessible in a the flow.
+* There are 2 ways of sending email form flow 1. direlcty using flow , 2. using vf templates or HTML templates
