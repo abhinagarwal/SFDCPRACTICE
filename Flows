@@ -6,3 +6,5 @@
     Use Email Alert that is configured seprately OR Send email action , whuch has template as well HTM template of email we can prepare using AI and put 
     in in template 
     We cant log the emails send using email alert
+
+    We can also send email using text to template in flow , we can put URL in as well
