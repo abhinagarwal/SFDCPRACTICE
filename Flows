@@ -22,5 +22,10 @@ They can return void or a list of some type
 from flow pass String-> Invocable will accept List<String> , 
 From flow pass List<String> -> Invocable will accept List<List<String>>
 Same for string
+USe Case -> Processing comma seperated texts , Large records number
+Performing Date related operations(Convert date, get hours etc)
+Complex SOQL query
+Integration with external systems
+
 
 
