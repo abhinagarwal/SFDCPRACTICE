@@ -28,6 +28,11 @@ Complex SOQL query
 Integration with external systems
 Inside Apex class there can be only onle method as invocable method
 We can use a class with invoacable parameters to pass the mumtiple values in a invocable method
+we can also define a variable of type apex class in resource section
+
+SUB FLOW/AUTO LAUNCH FLOW
+
+if a sub flow uses screen it can only be used form screen flow
 
 
 
