@@ -8,3 +8,6 @@
     We cant log the emails send using email alert
 
     We can also send email using text to template in flow , we can put URL in as well
+
+* if the flow get fetches morwe than 2000 records and then it has to be processed in the loop element in flow , then flow may break as LOOP has a 
+  Limit of processing 2000 elements.
