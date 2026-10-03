@@ -26,6 +26,8 @@ USe Case -> Processing comma seperated texts , Large records number
 Performing Date related operations(Convert date, get hours etc)
 Complex SOQL query
 Integration with external systems
+Inside Apex class there can be only onle method as invocable method
+We can use a class with invoacable parameters to pass the mumtiple values in a invocable method
 
 
 
